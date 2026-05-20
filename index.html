@@ -505,7 +505,28 @@ https://templatemo.com/tm-585-barber-shop
                         </div>
                     </div>
                 </footer>
-            </div> </div> <script src="js/jquery.min.js"></script>
+
+            </div> </div> <form id="loginForm" style="padding: 20px; max-width: 400px; margin: 20px auto; background: #fff; border-radius: 8px;">
+            <h3>Silahkan Login</h3>
+    
+            <label for="username">Nama Pengguna</label>
+            <input type="text" id="username" placeholder="Nama Pengguna .. " required="required" class="form-control">
+
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Password .. " required="required" class="form-control">
+
+            <button type="submit" class="btn custom-btn w-100 mt-2">masuk</button>
+
+            <div class="social" style="display: flex; justify-content: space-between; margin-top: 15px;">
+                <div class="go"><a href="register.html">DAFTAR</a></div>
+                <div class="kanan"><i class="fab fa-google"></i> Google</div>
+            </div>
+    
+            <button type="button" onclick="location.href='index.html';" class="btn custom-btn custom-border-btn w-100 mt-2">Home</button>
+            <div id="alertBox" class="alert" style="display:none;"></div>
+        </form>
+                    
+        <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/click-scroll.js"></script>
         <script src="js/custom.js"></script>
