@@ -117,5 +117,22 @@
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
 
+	<form id="loginForm">
+    	<div class="mb-3">
+        	<label for="username">Nama Pengguna</label>
+        	<input type="text" id="username" placeholder="Nama Pengguna" required class="form-control">
+    	</div>
+    	<div class="mb-3">
+        	<label for="password">Password</label>
+        	<input type="password" id="password" placeholder="Password" required class="form-control">
+    	</div>
+
+    	<button type="submit">masuk</button>
+    
+ 		<button type="button" onclick="location.href='../index.html';">Home</button>
+    	<div id="alertBox" class="alert" style="display:none;"></div>
+	</form>
+
+<script src="js/login.js"></script>
 </body>
 </html>
