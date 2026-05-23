@@ -512,22 +512,26 @@ https://templatemo.com/tm-585-barber-shop
                 <script src="js/custom.js"></script>
             
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // 1. Ambil data status login dan nama dari memori browser
+        window.addEventListener("load", function() {
+            // Ambil data dari memori browser
             const isLoggedIn = sessionStorage.getItem('isLoggedIn');
             const username = sessionStorage.getItem('username');
             
-            // 2. Cari elemen HTML yang punya id="userInfo"
+            // Tembak ID userInfo
             const userInfoLink = document.getElementById('userInfo');
 
-            // 3. Jika status di memori adalah 'true' (user sudah login)
             if (isLoggedIn === 'true' && userInfoLink) {
+                // Pakai innerHTML untuk memaksa perubahan teks secara mutlak
+                userInfoLink.innerHTML = "Halo, " + (username || "Heri");
                 
-                // Ubah tulisan "Belum Login" menjadi "Halo, heri" (atau nama user lainnya)
-                userInfoLink.innerText = "Halo, " + (username || "User");
+                // Ubah href-nya agar tidak nge-scroll ke section_6 lagi
+                userInfoLink.setAttribute('href', 'javascript:void(0);');
                 
-                // Opsional: Mengubah tujuannya agar tidak lompat ke #section_6 lagi saat diklik
-                userInfoLink.setAttribute('href', '#');
+                // Tambahan: Bagus juga kalau tombol merah "Login" di bawahnya ikutan disembunyikan/dihapus saat sudah masuk
+                const tombolLoginMerah = document.querySelector('.btn.custom-btn') || document.querySelector('a[href*="login"]');
+                if (tombolLoginMerah) {
+                    tombolLoginMerah.style.display = 'none';
+                }
             }
         });
     </script>
