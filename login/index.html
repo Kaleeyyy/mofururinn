@@ -47,22 +47,25 @@
                 </div>
             </div>
             
-            <div class="form sign-up">
+            <form id="registerForm" class="form sign-up">
                 <h2>Create your Account</h2>
-                <label>
+                <label for="regUsername">
                     <span>Name</span>
-                    <input type="text" />
+                    <input type="text" id="regUsername" placeholder="Username baru..." required="required" />
                 </label>
-                <label>
+                <label for="regEmail">
                     <span>Email</span>
-                    <input type="email" />
+                    <input type="email" id="regEmail" placeholder="Email kamu..." />
                 </label>
-                <label>
+                <label for="regPassword">
                     <span>Password</span>
-                    <input type="password" />
+                    <input type="password" id="regPassword" placeholder="Password baru..." required="required" />
                 </label>
-                <button type="button" class="submit">Sign Up</button>
-            </div>
+                
+                <button type="submit" class="submit">Sign Up</button>
+
+                <div id="regAlertBox" class="alert" style="display:none; color: red; margin-top: 15px; text-align: center; font-weight: bold; font-size: 14px;"></div>
+            </form>
         </div>
     </div>
 
