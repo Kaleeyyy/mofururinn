@@ -511,6 +511,26 @@ https://templatemo.com/tm-585-barber-shop
                 <script src="js/click-scroll.js"></script>
                 <script src="js/custom.js"></script>
             
- 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Ambil data status login dan nama dari memori browser
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+            const username = sessionStorage.getItem('username');
+            
+            // 2. Cari elemen HTML yang punya id="userInfo"
+            const userInfoLink = document.getElementById('userInfo');
+
+            // 3. Jika status di memori adalah 'true' (user sudah login)
+            if (isLoggedIn === 'true' && userInfoLink) {
+                
+                // Ubah tulisan "Belum Login" menjadi "Halo, heri" (atau nama user lainnya)
+                userInfoLink.innerText = "Halo, " + (username || "User");
+                
+                // Opsional: Mengubah tujuannya agar tidak lompat ke #section_6 lagi saat diklik
+                userInfoLink.setAttribute('href', '#');
+            }
+        });
+    </script>
+
     </body>
 </html>
