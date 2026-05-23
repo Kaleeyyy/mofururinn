@@ -1,5 +1,5 @@
 document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Mencegah halaman reload otomatis
+    e.preventDefault(); 
 
     const usernameInput = document.getElementById('username').value;
     const passwordInput = document.getElementById('password').value;
@@ -14,7 +14,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         password: passwordInput
     };
 
-    // Menghubungkan ke REST API online Guru
+    // Coba hubungkan ke REST API Online Guru
     fetch('https://herisusanta.my.id/javalogin/api/login.php', { 
         method: 'POST',
         headers: {
@@ -25,25 +25,37 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     .then(response => response.json())
     .then(data => {
         if (data.status === 'success' || data.message === 'Login berhasil') {
-            alertBox.style.color = 'green';
-            alertBox.innerText = 'Login Berhasil! Mengalihkan...';
-            
-            sessionStorage.setItem('isLoggedIn', 'true');
-            sessionStorage.setItem('username', usernameInput);
-
-            // PENTING: Pakai ../index.html karena browser harus keluar dari folder 'login' 
-            // untuk bisa nemuin index.html utama kamu yang gak di folder itu.
-            setTimeout(() => {
-                window.location.href = '../index.html';
-            }, 1000);
+            aksiLoginSukses(usernameInput, alertBox);
         } else {
             alertBox.style.color = 'red';
             alertBox.innerText = data.message || 'Username atau Password salah!';
         }
     })
     .catch(error => {
-        console.error('Error:', error);
-        alertBox.style.color = 'red';
-        alertBox.innerText = 'Gagal terhubung ke server login!';
+        console.warn('Server online error/CORS blokir. Beralih ke pengecekan lokal...', error);
+        
+        // JALUR CADANGAN: Jika server online gagal dihubungi, cek manual di sini
+        if (usernameInput === 'heri' && passwordInput === '123') {
+            aksiLoginSukses(usernameInput, alertBox);
+        } else if (usernameInput === 'admin' && passwordInput === '123') {
+            aksiLoginSukses(usernameInput, alertBox);
+        } else {
+            alertBox.style.color = 'red';
+            alertBox.innerText = 'Username atau Password salah! (Mode Offline)';
+        }
     });
 });
+
+// Fungsi pembantu jika login berhasil (biar tidak tulis ulang kodenya)
+function aksiLoginSukses(username, alertBox) {
+    alertBox.style.color = 'green';
+    alertBox.innerText = 'Login Berhasil! Mengalihkan...';
+    
+    sessionStorage.setItem('isLoggedIn', 'true');
+    sessionStorage.setItem('username', username);
+
+    // Keluar folder 'login' menuju index.html utama yang tidak di dalam folder
+    setTimeout(() => {
+        window.location.href = '../index.html';
+    }, 1000);
+}
