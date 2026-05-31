@@ -500,17 +500,29 @@ https://templatemo.com/tm-585-barber-shop
         const authAreaDiv = document.getElementById('authArea');
 
         // 3. Jika user terdeteksi sudah login
-        if (isLoggedIn === 'true' && userInfoLink) {
+        if (isLoggedIn === 'true') {
             
-            // Ubah teks menu "Belum Login" menjadi sapaan nama user secara mutlak
-            userInfoLink.innerHTML = "Halo, " + (username || "Heri");
+            // Ubah teks menu "Belum Login" menjadi sapaan nama user
+            if (userInfoLink) {
+                userInfoLink.innerHTML = "Halo, " + (username || "User");
+                userInfoLink.setAttribute('href', 'javascript:void(0);');
+            }
             
-            // Nonaktifkan fungsi scroll ke #section_6 agar menunya tidak nge-bug saat diklik
-            userInfoLink.setAttribute('href', 'javascript:void(0);');
-            
-            // Sembunyikan seluruh area tombol merah "Login" di sidebar
+            // Ubah tombol di dalam authArea menjadi tombol Logout
             if (authAreaDiv) {
-                authAreaDiv.style.display = 'none';
+                authAreaDiv.innerHTML = `<a href="#" id="btnLogout" class="btn custom-btn" style="background-color: #dc3545; border-color: #dc3545;">Logout</a>`;
+                
+                // Tambahkan fungsi klik untuk logout
+                document.getElementById('btnLogout').addEventListener('click', function(e) {
+                    e.preventDefault(); // Mencegah halaman langsung melompat
+                    
+                    // Hapus data login dari sessionStorage
+                    sessionStorage.removeItem('isLoggedIn');
+                    sessionStorage.removeItem('username');
+                    
+                    // Refresh halaman untuk mengembalikan ke tampilan awal (Belum Login)
+                    window.location.reload();
+                });
             }
         }
     });
