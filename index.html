@@ -490,28 +490,30 @@ https://templatemo.com/tm-585-barber-shop
                 <script src="js/custom.js"></script>
             
     <script>
-        window.addEventListener("load", function() {
-            // Ambil data dari memori browser
-            const isLoggedIn = sessionStorage.getItem('isLoggedIn');
-            const username = sessionStorage.getItem('username');
-            
-            // Tembak ID userInfo
-            const userInfoLink = document.getElementById('userInfo');
+    window.addEventListener("load", function() {
+        // 1. Ambil data status login dari session storage browser
+        const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+        const username = sessionStorage.getItem('username');
+        
+        // 2. Ambil elemen HTML yang akan dimanipulasi
+        const userInfoLink = document.getElementById('userInfo');
+        const authAreaDiv = document.getElementById('authArea');
 
-            if (isLoggedIn === 'true' && userInfoLink) {
-                // Pakai innerHTML untuk memaksa perubahan teks secara mutlak
-                userInfoLink.innerHTML = "Halo, " + (username || "Heri");
-                
-                // Ubah href-nya agar tidak nge-scroll ke section_6 lagi
-                userInfoLink.setAttribute('href', 'javascript:void(0);');
-                
-                // Tambahan: Bagus juga kalau tombol merah "Login" di bawahnya ikutan disembunyikan/dihapus saat sudah masuk
-                const tombolLoginMerah = document.querySelector('.btn.custom-btn') || document.querySelector('a[href*="login"]');
-                if (tombolLoginMerah) {
-                    tombolLoginMerah.style.display = 'none';
-                }
+        // 3. Jika user terdeteksi sudah login
+        if (isLoggedIn === 'true' && userInfoLink) {
+            
+            // Ubah teks menu "Belum Login" menjadi sapaan nama user secara mutlak
+            userInfoLink.innerHTML = "Halo, " + (username || "Heri");
+            
+            // Nonaktifkan fungsi scroll ke #section_6 agar menunya tidak nge-bug saat diklik
+            userInfoLink.setAttribute('href', 'javascript:void(0);');
+            
+            // Sembunyikan seluruh area tombol merah "Login" di sidebar
+            if (authAreaDiv) {
+                authAreaDiv.style.display = 'none';
             }
-        });
+        }
+    });
     </script>
 
     </body>
