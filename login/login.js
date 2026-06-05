@@ -50,7 +50,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
             aksiLoginSukses(usernameInput, alertBox);
         } else {
             alertBox.style.color = 'red';
-            alertBox.innerText = 'Username atau Password salah! (Mode Offline)';
+            alertBox.innerText = 'Username atau Password salah!';
         }
     });
 });
@@ -117,7 +117,7 @@ if (regForm) {
             sessionStorage.setItem('localPass', regPassword);
 
             regAlertBox.style.color = 'green';
-            regAlertBox.innerText = 'Registrasi Berhasil (Mode Offline)! Silahkan Sign In pakai akun ini.';
+            regAlertBox.innerText = 'Registrasi Berhasil! Silahkan Sign In pakai akun ini.';
         });
     });
 }
