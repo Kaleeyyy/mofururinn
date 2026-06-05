@@ -12,15 +12,15 @@ https://templatemo.com/tm-585-barber-shop
 -----------------------------------------*/
 :root {
   --white-color:                  #ffffff;
-  --primary-color:                #d6a354;
-  --secondary-color:              #c12828;
+  --primary-color:                #8c6697;
+  --secondary-color:              #efb4e1;
   --section-bg-color:             #f0f8ff;
-  --custom-btn-bg-color:          #c12828;
-  --custom-btn-bg-hover-color:    #FDBB2D;
+  --custom-btn-bg-color:          #ce70b6;
+  --custom-btn-bg-hover-color:    #f3a7f9;
   --dark-color:                   #000000;
   --p-color:                      #717275;
   --border-color:                 #7fffd4;
-  --link-hover-color:             #B22727;
+  --link-hover-color:             #b669bd;
 
   --body-font-family:             'Unbounded', cursive;
 
@@ -170,7 +170,7 @@ strong {
 }
 
 .custom-block-bg-overlay-wrap:hover {
-  background: linear-gradient(90deg, #FDBB2D 0%, #22C1C3 100%);
+  background: linear-gradient(90deg, #fd2dd3 0%, #9322c3 100%);
   transform: scale(1.05);
 }
 
@@ -372,7 +372,7 @@ strong {
 
 .hero-section::after {
   content: "";
-  background: linear-gradient(90deg, #FDBB2D 0%, #22C1C3 100%);
+  background: linear-gradient(90deg, #fd2dbf 0%, #a622c3 100%);
   position: absolute;
   top: 0;
   right: 0;
@@ -681,7 +681,7 @@ strong {
 
 .site-footer::after {
   content: "";
-  background: linear-gradient(90deg, #FDBB2D 0%, #22C1C3 100%);
+  background: linear-gradient(90deg, #fd2dbb 0%, #8d22c3 100%);
   position: absolute;
   right: 0;
   bottom: 0;
