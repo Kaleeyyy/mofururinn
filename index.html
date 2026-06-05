@@ -233,62 +233,63 @@ https://templatemo.com/tm-585-barber-shop
                         </div>
                     </section>
 
-                    <section class="booking-section section-padding" id="booking-section">
-                    <div class="container">
-                        <div class="row">
+                     <section class="booking-section section-padding" id="booking-section">
+                         <div class="container">
+                             <div class="row">
+                                 <div class="col-lg-10 col-12 mx-auto">
+                                     <form action="#" method="post" class="custom-form booking-form" id="bb-booking-form" role="form">
+                                         <div class="text-center mb-5">
+                                             <h2 class="mb-1">Reservasi di Sini</h2>
+                                             <p>Isi formnya dan nanti akan aku hubungi kembali~</p>
+                                         </div>
 
-                            <div class="col-lg-10 col-12 mx-auto">
-                                <form action="#" method="post" class="custom-form booking-form" id="bb-booking-form" role="form">
-                                    <div class="text-center mb-5">
-                                        <h2 class="mb-1">Reservasi di Sini</h2>
+                                         <div class="booking-form-body">
+                                             <div class="row">
+                                                 <div class="col-lg-6 col-12">
+                                                     <input type="text" name="bb-name" id="bb-name" class="form-control" placeholder="Nama Lengkap" required>
+                                                 </div>
 
-                                        <p>Isi formnya dan nanti akan aku hubungi kembali~</p>
-                                    </div>
+                                                 <div class="col-lg-6 col-12">
+                                                     <!-- Atribut pattern lama sudah dihapus, sekarang bisa diisi nomor apa saja -->
+                                                     <input type="tel" class="form-control" name="bb-phone" placeholder="Nomor Kontak (No. HP/WhatsApp)" required>
+                                                 </div>
+                        
+                                                 <div class="col-lg-6 col-12">
+                                                     <input class="form-control" type="time" name="bb-time" value="18:30" />
+                                                 </div>
 
-                                    <div class="booking-form-body">
-                                        <div class="row">
+                                                 <div class="col-lg-6 col-12">
+                                                     <select class="form-select form-control" name="bb-branch" id="bb-branch" aria-label="Default select example">
+                                                         <option selected="">Pilih Tipe</option>
+                                                         <option value="Grünberger">Pewarnaan Simple</option>
+                                                         <option value="Behrenstraße">Full Color</option>
+                                                         <option value="Weinbergsweg">FC+Latar</option>
+                                                     </select>
+                                                 </div>
 
-                                            <div class="col-lg-6 col-12">
-                                                <input type="text" name="bb-name" id="bb-name" class="form-control" placeholder="Nama Lengkap" required>
-                                            </div>
+                                                 <div class="col-lg-6 col-12">
+                                                     <input type="date" name="bb-date" id="bb-date" class="form-control" placeholder="Tenggat Waktu" required>
+                                                 </div>
 
-                                            <div class="col-lg-6 col-12">
-                                                <input type="tel" class="form-control" name="bb-phone" placeholder="Nomor Kontak" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required="">
-                                            </div>
-                                        
-                                            <div class="col-lg-6 col-12">
-                                                <input class="form-control" type="time" name="bb-time" value="18:30" />
-                                            </div>
+                                                 <div class="col-lg-6 col-12">
+                                                     <input type="number" name="bb-number" id="bb-number" class="form-control" placeholder="Jumlah Karya" required>
+                                                 </div>
+                                             </div>
 
-                                            <div class="col-lg-6 col-12">
-                                                <select class="form-select form-control" name="bb-branch" id="bb-branch" aria-label="Default select example">
-                                                    <option selected="">Pilih Tipe</option>
-                                                    <option value="Grünberger">Pewarnaan Simple</option>
-                                                    <option value="Behrenstraße">Full Color</option>
-                                                    <option value="Weinbergsweg">FC+Latar</option>
-                                                </select>
+                                             <textarea name="bb-message" rows="3" class="form-control" id="bb-message" placeholder="Tambahan (Opsional)"></textarea>
 
-                                            </div>
-                                            <div class="col-lg-6 col-12">
-                                                <input type="date" name="bb-date" id="bb-date" class="form-control" placeholder="Tenggat Waktu" required>
-                                            </div>
-
-                                            <div class="col-lg-6 col-12">
-                                                <input type="number" name="bb-number" id="bb-number" class="form-control" placeholder="Jumlah Karya" required>
-                                            </div>
-                                        </div>
-
-                                        <textarea name="bb-message" rows="3" class="form-control" id="bb-message" placeholder="Tambahan (Opsional)"></textarea>
-
-                                        <div class="col-lg-4 col-md-10 col-8 mx-auto">
-                                            <button type="submit" class="form-control">Kirim</button>
-                                        </div>
-                                    </div>
-                                </form>
-                        </div>
-                    </div>
-                </section>
-
+                                             <div class="col-lg-4 col-md-10 col-8 mx-auto text-center">
+                                                 <button type="submit" class="form-control">Kirim</button>
+                            
+                                                 <!-- Tempat munculnya tulisan "Pesan Terkirim" -->
+                                                 <div id="formStatus" class="mt-3" style="font-weight: bold; display: none;"></div>
+                                             </div>
+                                         </div>
+                                     </form>
+                                 </div>
+                             </div>
+                         </div>
+                     </section>
 
                     <section class="price-list-section section-padding" id="section_4">
                         <div class="container">
@@ -524,6 +525,27 @@ https://templatemo.com/tm-585-barber-shop
                     window.location.reload();
                 });
             }
+        }
+         const bookingForm = document.getElementById('bb-booking-form');
+         const formStatus = document.getElementById('formStatus');
+
+         if (bookingForm && formStatus) {
+             bookingForm.addEventListener('submit', function(e) {
+                 e.preventDefault(); // Mencegah halaman reload atau pindah page
+            
+                 // Tampilkan tulisan "Pesan Terkirim" dengan warna hijau sukses
+                 formStatus.innerHTML = "Pesan Terkirim";
+                 formStatus.style.color = "#28a745"; // Warna hijau sukses
+                 formStatus.style.display = "block"; // Munculkan elemennya
+            
+                 // Mengosongkan kembali form isi-isiannya setelah sukses diklik
+                 bookingForm.reset();
+            
+                 // Sembunyikan kembali tulisannya otomatis setelah 4 detik agar rapi
+                 setTimeout(function() {
+                     formStatus.style.display = "none";
+                }, 4000);
+            });
         }
     });
     </script>
