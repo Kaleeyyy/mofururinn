@@ -16,11 +16,11 @@ https://templatemo.com/tm-585-barber-shop
   --secondary-color:              #efb4e1;
   --section-bg-color:             #f0f8ff;
   --custom-btn-bg-color:          #ad5ea0;
-  --custom-btn-bg-hover-color:    #f9a7d1;
+  --custom-btn-bg-hover-color:    #fb9bcc;
   --dark-color:                   #000000;
   --p-color:                      #717275;
   --border-color:                 #7fffd4;
-  --link-hover-color:             #b669bd;
+  --link-hover-color:             #d48fda;
 
   --body-font-family:             'Unbounded', cursive;
 
@@ -170,7 +170,7 @@ strong {
 }
 
 .custom-block-bg-overlay-wrap:hover {
-  background: linear-gradient(90deg, #fb7ae1 0%, #b169d0 100%);
+  background: linear-gradient(90deg, #c972b7 0%, #935fa9 100%);
   transform: scale(1.05);
 }
 
@@ -372,7 +372,7 @@ strong {
 
 .hero-section::after {
   content: "";
-  background: linear-gradient(90deg, #fe7cd7 0%, #be66d2 100%);
+  background: linear-gradient(90deg, #d87abc 0%, #9e5eac 100%);
   position: absolute;
   top: 0;
   right: 0;
@@ -681,7 +681,7 @@ strong {
 
 .site-footer::after {
   content: "";
-  background: linear-gradient(90deg, #f87cd1 0%, #ae6ad1 100%);
+  background: linear-gradient(90deg, #d87aba 0%, #915aac 100%);
   position: absolute;
   right: 0;
   bottom: 0;
