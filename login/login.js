@@ -116,7 +116,7 @@ if (regForm) {
             sessionStorage.setItem('localPass', regPassword);
 
             regAlertBox.style.color = 'green';
-            regAlertBox.innerText = 'Registrasi Berhasil! Silahkan Sign In pakai akun ini.';
+            regAlertBox.innerText = 'Registrasi Berhasil! Silakan Sign In pakai akun ini.';
         });
     });
 }
