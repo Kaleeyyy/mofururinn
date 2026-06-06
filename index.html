@@ -250,7 +250,7 @@ https://templatemo.com/tm-585-barber-shop
                                                  </div>
 
                                                  <div class="col-lg-6 col-12">
-                                                     <!-- Atribut pattern lama sudah dihapus, sekarang bisa diisi nomor apa saja -->
+                                                     
                                                      <input type="tel" class="form-control" name="bb-phone" placeholder="Nomor Kontak (No. HP/WhatsApp)" required>
                                                  </div>
                         
@@ -281,7 +281,7 @@ https://templatemo.com/tm-585-barber-shop
                                              <div class="col-lg-4 col-md-10 col-8 mx-auto text-center">
                                                  <button type="submit" class="form-control">Kirim</button>
                             
-                                                 <!-- Tempat munculnya tulisan "Pesan Terkirim" -->
+                                                 
                                                  <div id="formStatus" class="mt-3" style="font-weight: bold; display: none;"></div>
                                              </div>
                                          </div>
@@ -492,36 +492,36 @@ https://templatemo.com/tm-585-barber-shop
             
     <script>
     window.addEventListener("load", function() {
-        // 1. Ambil data status login dari session storage browser
+        
         const isLoggedIn = sessionStorage.getItem('isLoggedIn');
         const username = sessionStorage.getItem('username');
         
-        // 2. Ambil elemen HTML yang akan dimanipulasi
+        
         const userInfoLink = document.getElementById('userInfo');
         const authAreaDiv = document.getElementById('authArea');
 
-        // 3. Jika user terdeteksi sudah login
+        
         if (isLoggedIn === 'true') {
             
-            // Ubah teks menu "Belum Login" menjadi sapaan nama user
+            
             if (userInfoLink) {
                 userInfoLink.innerHTML = "Halo, " + (username || "User");
                 userInfoLink.setAttribute('href', 'javascript:void(0);');
             }
             
-            // Ubah tombol di dalam authArea menjadi tombol Logout
+            
             if (authAreaDiv) {
                 authAreaDiv.innerHTML = `<a href="#" id="btnLogout" class="btn custom-btn" style="background-color: #ad5ea0; border-color: #ad5ea0;">Logout</a>`;
                 
-                // Tambahkan fungsi klik untuk logout
+                
                 document.getElementById('btnLogout').addEventListener('click', function(e) {
-                    e.preventDefault(); // Mencegah halaman langsung melompat
+                    e.preventDefault(); 
                     
-                    // Hapus data login dari sessionStorage
+                    
                     sessionStorage.removeItem('isLoggedIn');
                     sessionStorage.removeItem('username');
                     
-                    // Refresh halaman untuk mengembalikan ke tampilan awal (Belum Login)
+                    
                     window.location.reload();
                 });
             }
@@ -531,17 +531,17 @@ https://templatemo.com/tm-585-barber-shop
 
          if (bookingForm && formStatus) {
              bookingForm.addEventListener('submit', function(e) {
-                 e.preventDefault(); // Mencegah halaman reload atau pindah page
+                 e.preventDefault(); 
             
-                 // Tampilkan tulisan "Pesan Terkirim" dengan warna hijau sukses
+                 
                  formStatus.innerHTML = "Pesan Terkirim";
-                 formStatus.style.color = "#28a745"; // Warna hijau sukses
-                 formStatus.style.display = "block"; // Munculkan elemennya
+                 formStatus.style.color = "#28a745"; 
+                 formStatus.style.display = "block"; 
             
-                 // Mengosongkan kembali form isi-isiannya setelah sukses diklik
+                 
                  bookingForm.reset();
             
-                 // Sembunyikan kembali tulisannya otomatis setelah 4 detik agar rapi
+                 
                  setTimeout(function() {
                      formStatus.style.display = "none";
                 }, 4000);

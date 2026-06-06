@@ -1,6 +1,6 @@
-// ==========================================
+
 // 1. LOGIKA UNTUK SIGN IN (LOGIN)
-// ==========================================
+
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault(); 
 
@@ -17,7 +17,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         password: passwordInput
     };
 
-    // Coba hubungkan ke REST API Online Guru
+    
     fetch('https://herisusanta.my.id/javalogin/api/login.php', { 
         method: 'POST',
         headers: {
@@ -37,7 +37,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     .catch(error => {
         console.warn('Server online error/CORS blokir. Cek akun lokal...', error);
         
-        // Cek apakah akun sesuai dengan bawaan atau hasil register lokal tadi
+        
         const localRegUser = sessionStorage.getItem('localUser');
         const localRegPass = sessionStorage.getItem('localPass');
 
@@ -46,7 +46,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         } else if (usernameInput === 'admin' && passwordInput === '123') {
             aksiLoginSukses(usernameInput, alertBox);
         } else if (usernameInput === localRegUser && passwordInput === localRegPass && localRegUser !== null) {
-            // Lolos login pakai akun yang baru didaftarkan secara lokal
+            
             aksiLoginSukses(usernameInput, alertBox);
         } else {
             alertBox.style.color = 'red';
@@ -55,7 +55,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     });
 });
 
-// Fungsi pembantu jika login berhasil
+
 function aksiLoginSukses(username, alertBox) {
     alertBox.style.color = 'green';
     alertBox.innerText = 'Login Berhasil! Mengalihkan...';
@@ -69,16 +69,15 @@ function aksiLoginSukses(username, alertBox) {
 }
 
 
-// ==========================================
+
 // 2. LOGIKA UNTUK SIGN UP (REGISTER)
-// ==========================================
-// Pastikan tag <form> untuk register di HTML kamu punya id="registerForm"
+
 const regForm = document.getElementById('registerForm');
 if (regForm) {
     regForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // Cari input khusus di dalam form register (ganti ID-nya jika di HTML berbeda)
+        
         const regUsername = document.getElementById('regUsername') ? document.getElementById('regUsername').value : document.getElementById('username').value;
         const regPassword = document.getElementById('regPassword') ? document.getElementById('regPassword').value : document.getElementById('password').value;
         const regAlertBox = document.getElementById('regAlertBox') || document.getElementById('alertBox');
@@ -112,7 +111,7 @@ if (regForm) {
         .catch(error => {
             console.warn('Server register error/CORS. Mendaftar secara lokal...', error);
             
-            // Mode Cadangan: Simpan akun di memori browser supaya langsung bisa dipakai login
+            
             sessionStorage.setItem('localUser', regUsername);
             sessionStorage.setItem('localPass', regPassword);
 
