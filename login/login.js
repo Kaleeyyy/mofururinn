@@ -9,7 +9,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     const alertBox = document.getElementById('alertBox');
 
     alertBox.style.display = 'block';
-    alertBox.style.color = '#d4af7a'; 
+    alertBox.style.color = '#a46ba4'; 
     alertBox.innerText = 'Sedang memeriksa data...';
 
     const dataLogin = {
@@ -83,7 +83,7 @@ if (regForm) {
         const regAlertBox = document.getElementById('regAlertBox') || document.getElementById('alertBox');
 
         regAlertBox.style.display = 'block';
-        regAlertBox.style.color = '#d4af7a';
+        regAlertBox.style.color = '#a46ba4';
         regAlertBox.innerText = 'Sedang mendaftarkan akun...';
 
         const dataRegister = {
